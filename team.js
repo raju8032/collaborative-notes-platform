@@ -66,6 +66,10 @@ function removeMember(button) {
 // Change Role
 function changeRole(selectBox) {
 
+    if (!confirm("Do you want to change the role?")) {
+    return;
+}
+
     let table = document.getElementById("memberTable");
 
     let ownerCount = 0;
