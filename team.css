@@ -62,3 +62,9 @@ select{
     font-size: 18px;
     font-weight: bold;
 }
+
+button:hover{
+    background-color:#0d6efd;
+    color:white;
+    cursor:pointer;
+}
