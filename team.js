@@ -146,6 +146,9 @@ function searchMember() {
 
 }
 
+document.getElementById("memberCount").innerText =
+document.getElementById("memberTable").rows.length - 1;
+
 // Member Counter
 function updateMemberCount() {
 
