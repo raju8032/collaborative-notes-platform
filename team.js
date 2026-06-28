@@ -66,9 +66,14 @@ function removeMember(button) {
 // Change Role
 function changeRole(selectBox) {
 
+    let oldRole = selectBox.getAttribute("data-old-role")
+
     if (!confirm("Do you want to change the role?")) {
+        selectBox.value = oldRole;
     return;
 }
+
+selectBox.setAttribute("data-old-role",selectBox.value);
 
     let table = document.getElementById("memberTable");
 
