@@ -114,6 +114,9 @@ function changeRole(selectBox) {
 
 }
 
+  console.log(name + " role changed to " + role); 
+
+  
 // Search Member
 function searchMember() {
 
