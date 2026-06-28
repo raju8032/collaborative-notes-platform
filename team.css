@@ -74,3 +74,11 @@ button:hover{
     border:1px solid #2563eb;
     padding:8px;
 }
+
+table{
+    transition: 0.3s ease;
+}
+
+button{
+    transition: 0.3s ease;
+}
