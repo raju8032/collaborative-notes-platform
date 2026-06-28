@@ -68,3 +68,9 @@ button:hover{
     color:white;
     cursor:pointer;
 }
+
+#searchBox{
+    border-radius:6px;
+    border:1px solid #2563eb;
+    padding:8px;
+}
