@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Team Management</title>
+    <link rel="stylesheet" href="team.css"
+</head>
+
+<body>
+
+    <h1>Team Management</h1>
+    <h2>Team: Collaborative Notes Platform</h2>
+    <label><b>Current User :</b></label>
+
+<select id="currentUserRole" onchange="accessControl()">
+    <option value="Owner">Owner</option>
+    <option value="Admin">Admin</option>
+    <option value="Member">Member</option>
+</select>
+
+<br><br>
+
+    <p id="memberCount">Total Members: 6</p>
+    <button onclick="addMember()">Add Member</button>
+    <input type="text" id="searchBox" placeholder="search member..." onkeyup="searchMember()">
+
+<br><br>
+
+<table border="1" id="memberTable">
+    <tr>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Action</th>
+    </tr>
+
+    <tr>
+        <td>Rajath Sai</td>
+        <td>
+    <select onchange="changeRole(this)">
+        <option selected>Owner</option>
+        <option>Admin</option>
+        <option>Member</option>
+    </select>
+        </td>
+        <td><button onclick="removeMember(this)">Remove</button></td>
+    </tr>
+
+    <tr>
+        <td>R N Joshika</td>
+        <td>
+    <select onchange="changeRole(this)">
+        <option>Owner</option>
+        <option selected>Admin</option>
+        <option>Member</option>
+    </select>
+        </td>
+        <td><button onclick="removeMember(this)">Remove</button></td>
+    </tr>
+
+    <tr>
+        <td> Syeda Lubna</td>
+        <td>
+    <select onchange="changeRole(this)">
+        <option>Owner</option>
+        <option>Admin</option>
+        <option selected>Member</option>
+    </select>
+        </td>
+        <td><button onclick="removeMember(this)">Remove</button></td>
+    </tr>
+
+    <tr>
+        <td>Mithun Chakkaravarthy</td>
+        <td>
+    <select onchange="changeRole(this)">
+        <option>Owner</option>
+        <option>Admin</option>
+        <option selected>Member</option>
+    </select>
+        </td>
+        <td><button onclick="removeMember(this)">Remove</button></td>
+    </tr>
+
+    <tr>
+        <td>Sanjana Singh</td>
+        <td>
+    <select onchange="changeRole(this)">
+        <option>Owner</option>
+        <option>Admin</option>
+        <option selected>Member</option>
+    </select>
+        </td>
+        <td><button onclick="removeMember(this)">Remove</button></td>
+    </tr>
+
+    <tr>
+        <td>Bhakti Nayak</td>
+        <td>
+    <select onchange="changeRole(this)">
+        <option>Owner</option>
+        <option>Admin</option>
+        <option selected>Member</option>
+    </select>
+        </td>
+        <td><button onclick="removeMember(this)">Remove</button></td>
+    </tr>
+
+<br><br>
+
+</table>
+
+<script src="team.js"></script>
+
+</body>
+</html>
