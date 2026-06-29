@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>⚡ Team Hub</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #0B132B; color: #FFFFFF; margin: 0; display: flex; height: 100vh; overflow: hidden; }
+        
+        /* Left Instagram/Discord Style Sidebar */
+        .sidebar { width: 260px; background-color: #1C2541; display: flex; flex-direction: column; justify-content: space-between; padding: 24px; box-sizing: border-box; border-right: 1px solid #3A506B; }
+        .sidebar-top h2 { font-size: 20px; font-weight: 700; color: #4EA8DE; margin: 0 0 24px 0; display: flex; align-items: center; gap: 10px; }
+        .user-badge { background: #3A506B; padding: 10px 14px; border-radius: 12px; font-size: 14px; border-left: 4px solid #4EA8DE; }
+        .logout-btn { background: #FF4D4D; color: white; text-decoration: none; font-size: 14px; text-align: center; padding: 10px; border-radius: 8px; font-weight: 600; transition: 0.2s; }
+        .logout-btn:hover { background: #FF3333; }
+        
+        /* Main Chat / Feed Feed Area */
+        .main-feed { flex: 1; display: flex; flex-direction: column; background: linear-gradient(135deg, #0B132B 0%, #111D4A 100%); padding: 30px; box-sizing: border-box; overflow-y: auto; }
+        h1 { font-size: 28px; font-weight: 800; margin: 0 0 20px 0; color: #FFFFFF; background: linear-gradient(to right, #4EA8DE, #56CFE1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* Vibrant Post Creator */
+        .creator-box { background: #1C2541; border: 1px solid #3A506B; padding: 20px; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.2); margin-bottom: 30px; }
+        .input-title { font-size: 18px; font-weight: 600; border: none; background: #0B132B; width: 100%; padding: 12px; border-radius: 8px; margin-bottom: 12px; outline: none; color: #FFF; border: 1px solid #3A506B; box-sizing: border-box; }
+        .input-title:focus { border-color: #4EA8DE; }
+        .textarea-content { font-size: 14px; border: none; background: #0B132B; width: 100%; height: 80px; padding: 12px; border-radius: 8px; resize: none; outline: none; color: #FFF; border: 1px solid #3A506B; box-sizing: border-box; line-height: 1.4; }
+        .textarea-content:focus { border-color: #4EA8DE; }
+        .btn-submit { background: linear-gradient(90deg, #4EA8DE, #56CFE1); color: #0B132B; border: none; padding: 10px 20px; border-radius: 20px; font-size: 14px; font-weight: 700; cursor: pointer; float: right; margin-top: 10px; transition: 0.2s; }
+        .btn-submit:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(78,168,222,0.4); }
+        
+        /* Modern Grid Layout for Shared Workspace Cards */
+        .grid-container { display: flex; flex-direction: column; gap: 14px; margin-top: 10px; padding: 0; list-style: none; }
+        .card-item { background: #1C2541; border: 1px solid #3A506B; padding: 16px 20px; border-radius: 14px; display: flex; align-items: center; justify-content: space-between; transition: 0.2s; }
+        .card-item:hover { border-color: #56CFE1; background: #222E54; transform: scale(1.01); }
+        .card-link { color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; display: flex; align-items: center; gap: 10px; }
+        .version-badge { background: linear-gradient(90deg, #7209B7, #B5179E); color: white; font-size: 11px; padding: 4px 8px; border-radius: 20px; font-weight: 700; }
+        .action-view-btn { background: #3A506B; color: #56CFE1; text-decoration: none; font-size: 13px; padding: 6px 14px; border-radius: 20px; font-weight: 600; }
+        .action-view-btn:hover { background: #4EA8DE; color: #0B132B; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-top">
+            <h2>💬 SyncHub Workspace</h2>
+            <div class="user-badge">🟢 Online: <strong>@{{ username }}</strong></div>
+        </div>
+        <a href="/logout" class="logout-btn">Log Out</a>
+    </div>
+    
+    <div class="main-feed">
+        <h1>✨ Shared Live Workspace</h1>
+        
+        <div class="creator-box">
+            <form action="/note/create" method="post">
+                <input type="text" name="title" class="input-title" placeholder="🚀 Note Topic / Title..." required>
+                <textarea name="content" class="textarea-content" placeholder="Share updates, links, or draft features with your team here..." required></textarea>
+                <button type="submit" class="btn-submit">Post to Workspace</button>
+                <div style="clear:both;"></div>
+            </form>
+        </div>
+
+        <h1>📁 Team Project Boards</h1>
+        <ul class="grid-container">
+            {% for note in notes %}
+            <li class="card-item">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 24px;">📝</span>
+                    <a href="/note/{{ note.id }}" class="card-link">{{ note.title }}</a>
+                    <span class="version-badge">Build v{{ note.version }}</span>
+                </div>
+                <a href="/note/{{ note.id }}" class="action-view-btn">View Chat & History</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
