@@ -6,7 +6,8 @@ This repository is maintained by:
 * **R N Joshika** (Backend)
 * **Mithun Chakkaravarthy N** (Chat Architecture)
 * **Syeda Lubna** (UI Design & Glow)
-* **Bhakti Nayak.** (Database Optimization)
+* **Bhakti Nayak** (Database Optimization)
+
 * **Sanjana Singh** (UI Polish & Deploy)
 
 
